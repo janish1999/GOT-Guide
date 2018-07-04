@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".Details">
+
+    <ImageView
+        android:id="@+id/TitleImage"
+        android:layout_width="155dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="61dp"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/noName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="75dp"
+            app:srcCompat="@drawable/allinone" />
+
+        <TextView
+            android:id="@+id/doesntExist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/Books"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
+            android:text="Character doesnt exist"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/House"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/TitleImage"
+        android:layout_alignStart="@+id/Name"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/Gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/TitleImage"
+        android:layout_marginBottom="370dp"
+        android:layout_marginTop="206dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/DOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/TitleImage"
+        android:layout_marginBottom="340dp"
+        android:layout_marginTop="256dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/Cuture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/TitleImage"
+        android:layout_marginBottom="310dp"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/Spouse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/TitleImage"
+        android:layout_marginBottom="280dp" />
+
+    <TextView
+        android:id="@+id/Slug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/TitleImage"
+        android:layout_marginBottom="250dp" />
+
+    <TextView
+        android:id="@+id/DOD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/TitleImage"
+        android:layout_marginBottom="220dp" />
+
+    <TextView
+        android:id="@+id/PageRank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/TitleImage"
+        android:layout_marginBottom="190dp" />
+
+    <TextView
+        android:id="@+id/Books"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="120dp"
+        android:layout_marginStart="30dp" />
+
+    <TextView
+        android:id="@+id/Titles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="70dp"
+        android:layout_marginStart="30dp" />
+
+    <ImageView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/TitleImage"
+        android:layout_marginEnd="25dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_my_location_black_24dp" />
+
+</RelativeLayout>
