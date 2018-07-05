@@ -1,5 +1,6 @@
 package com.example.user.got_guide;
 
+import android.app.ProgressDialog;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
@@ -110,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
         getCity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               final ProgressDialog dialog = ProgressDialog.show(MainActivity.this, "",
+                        "Loading. Please wait...", true);
                 final Call<List<cities>> cityCall=apiInterface.getCities();
                 cityCall.enqueue(new Callback<List<cities>>() {
                     @Override
@@ -120,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent ci=new Intent(MainActivity.this,AllCities.class);
                         ci.putStringArrayListExtra("CityName",cityName);
                         startActivity(ci);
+                        dialog.dismiss();
                     }
 
                     @Override
@@ -169,6 +174,30 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    Search.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Names=database.dataAccessObject().getAllName();
+            int flag=0;
+            for(int i=0;i<Names.size();i++){
+                if(Search.getText().toString().equals(Names.get(i)))
+                {
+                    //Toast.makeText(getApplicationContext(),"From Database",Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(MainActivity.this,historyData.class);
+                    intent.putExtra("name",Search.getText().toString());
+                    startActivity(intent);
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==0){
+                //Toast.makeText(getApplicationContext(),"From API",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, Details.class);
+                intent.putExtra("Name", Search.getText().toString());
+                startActivity(intent);
+        }
+    }
+    });
     }
     private static boolean doesDatabaseExist(Context context, String dbName) {
         File dbFile = context.getDatabasePath(dbName);

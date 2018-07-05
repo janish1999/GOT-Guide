@@ -1,5 +1,6 @@
 package com.example.user.got_guide;
 
+import android.app.ProgressDialog;
 import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -105,6 +106,8 @@ public class Details extends AppCompatActivity {
     location.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            final ProgressDialog dialog = ProgressDialog.show(Details.this, "",
+                    "Loading. Please wait...", true);
             final Call<locationMessage> dataCall=apiInterface.getLocation(Data.getData().getName());
             dataCall.enqueue(new Callback<locationMessage>() {
                 @Override
@@ -116,6 +119,7 @@ public class Details extends AppCompatActivity {
                     String[] locate=location[0].getLocations();
                     in.putExtra("Locations",locate);
                     startActivity(in);
+                    dialog.dismiss();
                 }
 
                 @Override
